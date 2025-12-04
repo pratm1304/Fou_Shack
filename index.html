@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fou Shack Bakery - Christmas & Frozen Delights</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Snowflakes -->
+    <div id="snowflakes"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Fou Shack</h1>
+            <p class="hero-subtitle">BAKERY ❄️</p>
+            <p class="hero-description">
+                Where every bite tells a story of tradition, passion, and perfection. 
+                Crafting moments of joy since 2015. ✨🎄
+            </p>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToNext('branches-section')">
+            <svg class="chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section id="branches-section">
+        <div class="container">
+            <h2 class="section-title">Our Branches 🏠</h2>
+            <p class="section-subtitle">Visit us at any of our locations across Nagpur</p>
+            <div class="branches-grid" id="branches-container"></div>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToNext('categories-section')">
+            <svg class="chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white !important;">Our Specialties 🎄</h2>
+            <p class="section-subtitle"  style="color: white !important;">Explore our delicious categories</p>
+            <div class="categories-grid" id="categories-container"></div>
+            <a href="https://www.zomato.com" target="_blank" class="zomato-button">
+                🛒 Order Now on Zomato
+            </a>
+        </div>
+        <!-- <div class="scroll-indicator" onclick="scrollToNext('owners-section')">
+            <svg class="chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div> -->
+    </section>
+
+    <!-- Owners Section -->
+    <section id="owners-section">
+        <div class="container">
+            <h2 class="section-title">Meet The Founders 👨‍🍳👩‍🍳</h2>
+            <p class="section-subtitle">The passionate minds behind Fou Shack</p>
+            <div class="owners-grid" id="owners-container"></div>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToNext('favorites-section')">
+            <svg class="chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Favorites Section -->
+    <section id="favorites-section">
+        <div class="container">
+        <h2 class="section-title">All-Time Favorites ⭐</h2>
+            <p class="section-subtitle">Customer favorites that keep them coming back</p>
+            <div class="products-grid" id="products-container"></div>
+        </div>
+        <!-- <div class="scroll-indicator" onclick="scrollToNext('contact-section')">
+            <svg class="chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div> -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white !important;">Get In Touch 💌</h2>
+            <p class="section-subtitle"  style="color: white !important;">We'd love to hear from you</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <span class="contact-label">📞 Phone</span>
+                        <div class="contact-value">+91 98765 43210</div>
+                        <div class="contact-value">+91 98765 43211</div>
+                        <div class="contact-buttons">
+                            <a href="https://wa.me/919876543210" target="_blank" class="contact-btn whatsapp-btn">
+                                💬 WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">✉️ Email</span>
+                        <div class="contact-value">info@foushack.com</div>
+                        <div class="contact-value">orders@foushack.com</div>
+                        <div class="contact-buttons">
+                            <a href="mailto:info@foushack.com" class="contact-btn email-btn">
+                                📧 Send Email
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">📍 Main Branch</span>
+                        <div class="contact-value">Shop No. 5, Bajaj Nagar, Nagpur - 440010</div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Follow Us</span>
+                        <div class="social-links">
+                            <a href="https://facebook.com" target="_blank" class="social-icon">📘</a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon">📷</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send Us A Message</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message ✨</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="map-container">
+    <iframe 
+        src="https://www.google.com/maps/d/u/0/embed?mid=1xTMVrfYDCh6WoV_JAxh1huvaHyxXHOk&ehbc=2E312F&noprof=1"
+        width="100%" 
+        height="100%" 
+        style="border:0; border-radius: 20px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Fou Shack Bakery. All rights reserved. Made with ❤️ and ❄️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
