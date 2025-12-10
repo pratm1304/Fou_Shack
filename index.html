@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fou Shack Bakery</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -14,13 +15,13 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             color: #333;
             overflow-x: hidden;
             background: #fff;
         }
 
-        /* Hero Section - Baskin Robbins Style */
+        /* Hero Section */
         .hero {
             height: 100vh;
             background: linear-gradient(180deg, #FF69B4 0%, #FF1493 50%, #C71585 100%);
@@ -80,12 +81,12 @@
         }
 
         .hero h1 {
-            font-family: 'Fredoka', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: clamp(3rem, 10vw, 7rem);
             font-weight: 700;
             margin-bottom: 1rem;
             text-shadow: 0 5px 30px rgba(0,0,0,0.3);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .hero p {
@@ -128,7 +129,7 @@
 
         .section-title {
             text-align: center;
-            font-family: 'Fredoka', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             margin-bottom: 4rem;
@@ -136,7 +137,7 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* New Launches - Pink Gradient Background */
+        /* New Launches */
         .new-launches {
             background: linear-gradient(135deg, #FFE5F1 0%, #FFF0F7 100%);
             position: relative;
@@ -160,7 +161,7 @@
 
         .launch-card {
             background: white;
-            border-radius: 30px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(255,20,147,0.2);
             transition: all 0.4s ease;
@@ -201,7 +202,7 @@
         }
 
         .launch-card h3 {
-            font-family: 'Fredoka', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
             margin-bottom: 15px;
             color: #FF1493;
@@ -227,7 +228,7 @@
             box-shadow: 0 5px 15px rgba(255,20,147,0.4);
         }
 
-        /* Branches - Colorful Gradient */
+        /* Branches */
         .branches {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             color: white;
@@ -246,13 +247,34 @@
         .branch-card {
             background: rgba(255,255,255,0.15);
             backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 40px;
+            border-radius: 12px;
+            padding: 50px 40px;
+            min-height: 350px;
             text-align: center;
             transition: all 0.4s;
-            border: 2px solid rgba(255,255,255,0.3);
+            border: none;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .branch-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(68, 73, 96, 0.45), rgba(57, 30, 83, 0.45));
+            z-index: 0;
+        }
+        
+        .branch-card > * {
+            position: relative;
+            z-index: 1;
         }
 
         .branch-card::before {
@@ -265,6 +287,7 @@
             background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.4s;
+            z-index: 1;
         }
 
         .branch-card:hover::before {
@@ -284,15 +307,18 @@
         }
 
         .branch-card h3 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            font-weight: 700;
         }
 
         .branch-card p {
-            margin-bottom: 25px;
-            opacity: 0.95;
-            line-height: 1.6;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
         }
 
         .branch-link {
@@ -312,7 +338,7 @@
             background: #FFD700;
         }
 
-        /* Founders - Light Background */
+        /* Founders */
         .founders {
             background: linear-gradient(135deg, #FFF5E6 0%, #FFE5F1 100%);
         }
@@ -328,7 +354,7 @@
             text-align: center;
             background: white;
             padding: 40px;
-            border-radius: 30px;
+            border-radius: 12px;
             box-shadow: 0 15px 50px rgba(255,20,147,0.15);
             transition: all 0.4s;
         }
@@ -355,7 +381,7 @@
         }
 
         .founder-card h3 {
-            font-family: 'Fredoka', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 2rem;
             margin-bottom: 10px;
             color: #FF1493;
@@ -373,7 +399,7 @@
             line-height: 1.9;
         }
 
-        /* Categories - Vibrant Cards */
+        /* Categories */
         .categories {
             background: white;
         }
@@ -387,7 +413,7 @@
         .category-card {
             position: relative;
             height: 350px;
-            border-radius: 30px;
+            border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.4s;
@@ -413,7 +439,7 @@
         .category-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(255,20,147,0.3), rgba(102,126,234,0.9));
+            background: linear-gradient(to bottom, rgba(86, 21, 55, 0.3), rgba(42, 48, 72, 0.9));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -423,7 +449,7 @@
         }
 
         .category-overlay h3 {
-            font-family: 'Fredoka', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             margin-bottom: 15px;
             text-shadow: 0 5px 15px rgba(0,0,0,0.4);
@@ -434,7 +460,7 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        /* All Time Favorites - Pink Theme */
+        /* All Time Favorites */
         .favorites {
             background: linear-gradient(135deg, #FFE5F1 0%, #FFF0F7 100%);
         }
@@ -447,7 +473,7 @@
 
         .favorite-card {
             background: white;
-            border-radius: 30px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(255,20,147,0.15);
             transition: all 0.4s ease;
@@ -470,7 +496,7 @@
         }
 
         .favorite-card h3 {
-            font-family: 'Fredoka', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.4rem;
             margin-bottom: 12px;
             color: #333;
@@ -505,7 +531,7 @@
             background: linear-gradient(135deg, #FF69B4, #FFD700);
         }
 
-        /* Contact - Purple Gradient */
+        /* Contact */
         .contact {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -526,12 +552,12 @@
             background: rgba(255,255,255,0.15);
             backdrop-filter: blur(20px);
             padding: 40px;
-            border-radius: 30px;
+            border-radius: 12px;
             border: 2px solid rgba(255,255,255,0.2);
         }
 
         .contact-info h3 {
-            font-family: 'Fredoka', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 2rem;
             margin-bottom: 30px;
         }
@@ -582,7 +608,7 @@
 
         .map-container {
             height: 450px;
-            border-radius: 30px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0,0,0,0.4);
             border: 3px solid rgba(255,255,255,0.3);
@@ -630,7 +656,7 @@
                 gap: 20px;
                 padding: 0 15px 20px 15px;
                 -webkit-overflow-scrolling: touch;
-                scrollbar-width: none; /* Firefox */
+                scrollbar-width: none;
             }
 
             .launches-grid::-webkit-scrollbar,
@@ -638,7 +664,7 @@
             .founders-grid::-webkit-scrollbar,
             .categories-grid::-webkit-scrollbar,
             .favorites-grid::-webkit-scrollbar {
-                display: none; /* Chrome, Safari */
+                display: none;
             }
 
             .launch-card,
@@ -832,6 +858,7 @@
                 snowflake.className = 'snowflake';
                 snowflake.innerHTML = '❄';
                 snowflake.style.left = Math.random() * 100 + '%';
+                snowflake.style.top = Math.random() * -200 + "px";
                 snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
                 snowflake.style.animationDelay = Math.random() * 5 + 's';
                 snowflake.style.fontSize = (Math.random() * 1 + 1) + 'rem';
@@ -843,19 +870,19 @@
         // Data
         const launches = [
             {
-                title: "Christmas Special Cake",
+                title: "Christmas Special Plum Cake",
                 description: "Delightful red velvet cake with rich cream cheese frosting, perfect for your holiday celebrations!",
-                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800"
+                image: "https://images.unsplash.com/photo-1628471036342-adf99e82f1ac?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800"
             },
             {
-                title: "Frozen Berry Delight",
+                title: "Cheese Garlic Bread",
                 description: "Fresh seasonal berries on buttery tart crust with smooth vanilla cream. A winter favorite!",
-                image: "https://images.unsplash.com/photo-1519915212116-7cfef71f1d3e?w=800"
+                image: "https://plus.unsplash.com/premium_photo-1711752902734-a36167479983?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hlZXNlJTIwZ2FybGljJTIwYnJlYWR8ZW58MHx8MHx8fDA%3D?w=800"
             },
             {
-                title: "Winter Wonderland Cupcakes",
+                title: "Oats Bread",
                 description: "Moist vanilla cupcakes topped with refreshing peppermint buttercream. Holiday magic in every bite!",
-                image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=800"
+                image: "https://media.istockphoto.com/id/474679296/photo/organic-homemade-whole-wheat-bread.webp?a=1&b=1&s=612x612&w=0&k=20&c=LRobL95BQELoj0H7FR9mbiJwLQmSczO4GiVspWYic5M="
             }
         ];
 
@@ -863,20 +890,20 @@
             {
                 name: "Bajaj Nagar",
                 address: "Shop No. 5, Bajaj Nagar, Nagpur - 440010",
-                icon: "🏪",
-                mapLink: "https://maps.google.com"
+                mapLink: "https://maps.google.com",
+                bgImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800"
             },
             {
                 name: "MIHAN",
                 address: "Plot No. 12, MIHAN, Nagpur",
-                icon: "🏬",
-                mapLink: "https://maps.google.com"
+                mapLink: "https://maps.google.com",
+                bgImage: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800"
             },
             {
-                name: "Wardha Nagar",
+                name: "Wardhaman Nagar",
                 address: "Near Main Square, Wardha Nagar, Nagpur",
-                icon: "🏢",
-                mapLink: "https://maps.google.com"
+                mapLink: "https://maps.google.com",
+                bgImage: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800"
             }
         ];
 
@@ -954,8 +981,7 @@
         const branchesContainer = document.getElementById('branches-container');
         branches.forEach(branch => {
             branchesContainer.innerHTML += `
-                <div class="branch-card">
-                    <div class="branch-icon">${branch.icon}</div>
+                <div class="branch-card" style="background-image: url('${branch.bgImage}'); background-size: cover; background-position: center; background-blend-mode: overlay;">
                     <h3>${branch.name}</h3>
                     <p>${branch.address}</p>
                     <a href="${branch.mapLink}" target="_blank" class="branch-link">Get Directions</a>
@@ -996,7 +1022,7 @@
                     <div class="favorite-card-content">
                         <h3>${fav.title}</h3>
                         <p>${fav.description}</p>
-                        <button class="order-btn">Order Now 🎄</button>
+                        <button class="order-btn">Order Now</button>
                     </div>
                 </div>
             `;
