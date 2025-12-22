@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Fou Shack - Premium Bakery</title>
+    <!-- Add these favicon lines -->
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    <link rel="apple-touch-icon" href="./images/logo.png">
     <style>
         * {
             margin: 0;
@@ -429,9 +432,13 @@
         /* Mobile Styles */
         @media (max-width: 768px) {
             /* Hide Navigation */
-            nav {
+            /* nav {
                 display: none;
-            }
+            } */
+
+            .nav-links {
+        display: none;
+    }   
 
             /* Hero Section */
             .hero {
@@ -790,14 +797,6 @@
                 </div>
                 <a href="https://maps.app.goo.gl/Hksu5zeH1wJT7dLk7" target="_blank" class="branch-link">View on Map →</a>
             </div>
-            <div class="branch-card" onclick="openMap('https://maps.app.goo.gl/8HzGMkTpid7NfFAw9')">
-                <div class="branch-name"> MIHAN </div>
-                <div class="branch-address">
-                    Fou Shack Brunch & Cakes<br>
-                    Nagpur, Maharashtra 441108
-                </div>
-                <a href="https://maps.app.goo.gl/8HzGMkTpid7NfFAw9" target="_blank" class="branch-link">View on Map →</a>
-            </div>
             <div class="branch-card" onclick="openMap('https://maps.app.goo.gl/1HQkhhtiLXzeYEwd9')">
                 <div class="branch-name">Wardhaman Nagar </div>
                 <div class="branch-address">
@@ -805,6 +804,14 @@
                     Nagpur, Maharashtra 440008
                 </div>
                 <a href="https://maps.app.goo.gl/1HQkhhtiLXzeYEwd9" target="_blank" class="branch-link">View on Map →</a>
+            </div>
+            <div class="branch-card" onclick="openMap('https://maps.app.goo.gl/8HzGMkTpid7NfFAw9')">
+                <div class="branch-name"> MIHAN </div>
+                <div class="branch-address">
+                    Fou Shack Brunch & Cakes<br>
+                    Nagpur, Maharashtra 441108
+                </div>
+                <a href="https://maps.app.goo.gl/8HzGMkTpid7NfFAw9" target="_blank" class="branch-link">View on Map →</a>
             </div>
         </div>
     </section>
