@@ -487,10 +487,7 @@
     width: 100%;           /* viewport width */
 }
 
-.scroll-container,
-.scroll-wrapper {
-    white-space: nowrap;
-}
+
 
 
 @keyframes scroll {
@@ -498,18 +495,21 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-100%);
     }
 }
+
 
         .scroll-wrapper {
     display: flex;
     gap: 20px;
-    width: max-content;    /* only here */
+    width: max-content;
+    flex-shrink: 0;
     animation: scroll 30s linear infinite;
     will-change: transform;
-    transform: translateZ(0); /* Safari GPU fix */
+    transform: translate3d(0,0,0);
 }
+
 
         .product-card {
             flex: 0 0 450px;
