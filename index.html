@@ -483,10 +483,15 @@
 
         .scroll-container {
     display: flex;
-    gap: 20px;
-    animation: scroll 30s linear infinite;
-    width: fit-content;
+    overflow: hidden;      /* important */
+    width: 100%;           /* viewport width */
 }
+
+.scroll-container,
+.scroll-wrapper {
+    white-space: nowrap;
+}
+
 
 @keyframes scroll {
     0% {
@@ -498,9 +503,13 @@
 }
 
         .scroll-wrapper {
-            display: flex;
-            gap: 20px;
-        }
+    display: flex;
+    gap: 20px;
+    width: max-content;    /* only here */
+    animation: scroll 30s linear infinite;
+    will-change: transform;
+    transform: translateZ(0); /* Safari GPU fix */
+}
 
         .product-card {
             flex: 0 0 450px;
