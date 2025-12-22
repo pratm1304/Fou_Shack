@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fou Shack Bakery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Fou Shack - Premium Bakery</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
-
         * {
             margin: 0;
             padding: 0;
@@ -15,1028 +14,885 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background: #190b1b;
+            color: #fff;
             overflow-x: hidden;
-            background: #fff;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #f2f1f3;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #7B2CBF;
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(180deg, #FF69B4 0%, #FF1493 50%, #C71585 100%);
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            margin-top: 60px;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        .hero-video {
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 50%;
-            bottom: -100px;
-            left: -100px;
-            animation: pulse 5s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .snowflake {
-            position: absolute;
-            color: rgba(255,255,255,0.8);
-            font-size: 1.5rem;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% { top: -10%; }
-            100% { top: 110%; }
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
         }
 
         .hero-content {
-            text-align: center;
-            color: white;
-            z-index: 1;
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 7rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 0 5px 30px rgba(0,0,0,0.3);
-            letter-spacing: 1px;
-        }
-
-        .hero p {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-bottom: 2.5rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 18px 50px;
-            background: white;
-            color: #FF1493;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-            background: #FFD700;
-        }
-
-        /* Section Common Styles */
-        section {
-            padding: 100px 20px;
             position: relative;
+            z-index: 10;
+            text-align: center;
         }
 
-        .container {
-            max-width: 1300px;
+        .hero-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background: transparent;
+            border: 1px solid #f1eef3;
+            color: #fff;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hero-btn:hover {
+            background: #7B2CBF;
+        }
+
+        /* Categories Section */
+        .categories {
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 80px 40px;
         }
 
         .section-title {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 4rem;
-            color: #FF1493;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 40px;
+            font-weight: 600;
         }
 
-        /* New Launches */
-        .new-launches {
-            background: linear-gradient(135deg, #FFE5F1 0%, #FFF0F7 100%);
-            position: relative;
-        }
-
-        .new-launches::before {
-            content: '🎄';
-            position: absolute;
-            font-size: 20rem;
-            opacity: 0.03;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .launches-grid {
+        .category-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
-        .launch-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(255,20,147,0.2);
-            transition: all 0.4s ease;
+        .category-card {
             position: relative;
+            height: 500px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #1a1a1a;
         }
 
-        .launch-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .category-video {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255,20,147,0.1), rgba(255,105,180,0.1));
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 1;
-        }
-
-        .launch-card:hover::before {
-            opacity: 1;
-        }
-
-        .launch-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(255,20,147,0.4);
-        }
-
-        .launch-card img {
-            width: 100%;
-            height: 280px;
             object-fit: cover;
-            transition: none;
+            transition: transform 0.6s ease;
         }
 
-        .launch-card-content {
-            padding: 30px;
+        .category-card:hover .category-video {
+            transform: scale(1.05);
         }
 
-        .launch-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            color: #FF1493;
-        }
-
-        .launch-card p {
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .new-badge {
+        .category-overlay {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #FF6B6B, #FF1493);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            z-index: 2;
-            box-shadow: 0 5px 15px rgba(255,20,147,0.4);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
         }
 
-        /* Branches */
+        .category-name {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* New Launches Section */
+        .new-launches {
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .new-launches-title {
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 40px;
+            font-weight: 600;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .scroll-container {
+    display: flex;
+    gap: 20px;
+    animation: scroll 30s linear infinite;
+    width: fit-content;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+        .scroll-wrapper {
+            display: flex;
+            gap: 20px;
+        }
+
+        .product-card {
+            flex: 0 0 450px;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+            background: #1a1a1a;
+        }
+
+        .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 75%; /* Shows bottom 40% of image */
+}
+
+        .product-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7) 50%, transparent);
+}
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Branches Section */
         .branches {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            color: white;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
         }
 
-        .branches .section-title {
-            color: white;
-        }
-
-        .branches-grid {
+        .branch-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .branch-card {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(20px);
-            border-radius: 12px;
-            padding: 50px 40px;
-            min-height: 350px;
-            text-align: center;
-            transition: all 0.4s;
-            border: none;
+            border: 0.5px solid white;
+            padding: 30px;
+            background: #1a1a1a;
+            transition: border-color 0.3s;
+            cursor: pointer;
             position: relative;
             overflow: hidden;
+            min-height: 200px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .branch-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(68, 73, 96, 0.45), rgba(57, 30, 83, 0.45));
-            z-index: 0;
-        }
-        
-        .branch-card > * {
-            position: relative;
-            z-index: 1;
+            justify-content: flex-end;
         }
 
         .branch-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #1e051832;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            z-index: 0;
         }
 
-        .branch-card:hover::before {
-            opacity: 1;
+        .branch-card:nth-child(2)::before {
+            background-color: #1e051832;
+        }
+
+        .branch-card:nth-child(3)::before {
+            background-color: #1e051832;
         }
 
         .branch-card:hover {
-            background: rgba(255,255,255,0.25);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-color: #d7d2dc;
         }
 
-        .branch-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+        .branch-card:hover::before {
+            opacity: 0.4;
         }
 
-        .branch-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-            font-weight: 700;
+        .branch-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
         }
 
-        .branch-card p {
-            margin-bottom: 30px;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+        .branch-address {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
         }
 
         .branch-link {
             display: inline-block;
-            padding: 12px 35px;
-            background: white;
-            color: #667eea;
-            border-radius: 30px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #d3a0ff;
             text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
         }
 
         .branch-link:hover {
-            transform: scale(1.1);
-            background: #FFD700;
+            border-color: #7B2CBF;
         }
 
-        /* Founders */
-        .founders {
-            background: linear-gradient(135deg, #FFF5E6 0%, #FFE5F1 100%);
-        }
-
-        .founders-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 60px;
-            margin-top: 50px;
-        }
-
-        .founder-card {
-            text-align: center;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 15px 50px rgba(255,20,147,0.15);
-            transition: all 0.4s;
-        }
-
-        .founder-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 70px rgba(255,20,147,0.3);
-        }
-
-        .founder-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 25px;
-            border: 6px solid #FF1493;
-            box-shadow: 0 15px 40px rgba(255,20,147,0.4);
-            transition: all 0.3s;
-        }
-
-        .founder-card:hover .founder-img {
-            border-color: #FFD700;
-            box-shadow: 0 20px 50px rgba(255,20,147,0.5);
-        }
-
-        .founder-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: #FF1493;
-        }
-
-        .founder-card .role {
-            color: #764ba2;
-            font-weight: 600;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .founder-card p {
-            color: #666;
-            line-height: 1.9;
-        }
-
-        /* Categories */
-        .categories {
-            background: white;
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .category-card {
-            position: relative;
-            height: 350px;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        }
-
-        .category-card:hover {
-            transform: scale(1.08) rotate(-2deg);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        .category-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.4s;
-        }
-
-        .category-card:hover img {
-            transform: scale(1.15);
-        }
-
-        .category-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(86, 21, 55, 0.3), rgba(42, 48, 72, 0.9));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: white;
-            padding: 30px;
-        }
-
-        .category-overlay h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.4);
-        }
-
-        .category-overlay p {
-            font-size: 1.1rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        /* All Time Favorites */
-        .favorites {
-            background: linear-gradient(135deg, #FFE5F1 0%, #FFF0F7 100%);
-        }
-
-        .favorites-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .favorite-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(255,20,147,0.15);
-            transition: all 0.4s ease;
-        }
-
-        .favorite-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(255,20,147,0.3);
-        }
-
-        .favorite-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            transition: none;
-        }
-
-        .favorite-card-content {
-            padding: 25px;
-        }
-
-        .favorite-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            color: #333;
-        }
-
-        .favorite-card p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .order-btn {
-            display: block;
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #FF1493, #FF69B4);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 25px rgba(255,20,147,0.3);
-        }
-
-        .order-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255,20,147,0.5);
-            background: linear-gradient(135deg, #FF69B4, #FFD700);
-        }
-
-        /* Contact */
+        /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px 100px;
         }
 
-        .contact .section-title {
-            color: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 50px;
-            margin-bottom: 60px;
+        .contact-content {
+            max-width: 600px;
+            margin: 40px auto 0;
+            text-align: center;
         }
 
         .contact-info {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(20px);
-            padding: 40px;
-            border-radius: 12px;
-            border: 2px solid rgba(255,255,255,0.2);
+            margin-bottom: 25px;
         }
 
-        .contact-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 30px;
+        .contact-label {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 8px;
+            font-weight: 600;
         }
 
-        .contact-item {
-            margin-bottom: 30px;
+        .contact-text {
+            font-size: 15px;
+            color: #fff;
+            font-weight: 500;
         }
 
-        .contact-item strong {
-            display: block;
-            margin-bottom: 12px;
-            font-size: 1.2rem;
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
-
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 30px;
-            border-radius: 30px;
+        .contact-link {
+            color: #7B2CBF;
             text-decoration: none;
-            font-weight: 700;
+            transition: opacity 0.3s;
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            opacity: 0.7;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .whatsapp {
-            background: #25D366;
-            color: white;
+        .social-icon:hover {
+            background: #7B2CBF;
+            border-color: #7B2CBF;
+            transform: translateY(-5px);
         }
 
-        .email {
-            background: #ea4335;
-            color: white;
+        .social-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
         }
 
-        .contact-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        .map-container {
-            height: 450px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            border: 3px solid rgba(255,255,255,0.3);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 1.1rem;
-        }
-
-        /* Responsive */
+        /* Mobile Styles */
         @media (max-width: 768px) {
-            section {
-                padding: 60px 0;
-            }
-
-            .container {
-                padding: 0;
-            }
-
-            .section-title {
-                margin-bottom: 2rem;
-                padding: 0 15px;
-            }
-
-            /* Horizontal Scrolling for Mobile */
-            .launches-grid,
-            .branches-grid,
-            .founders-grid,
-            .categories-grid,
-            .favorites-grid {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 20px;
-                padding: 0 15px 20px 15px;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-
-            .launches-grid::-webkit-scrollbar,
-            .branches-grid::-webkit-scrollbar,
-            .founders-grid::-webkit-scrollbar,
-            .categories-grid::-webkit-scrollbar,
-            .favorites-grid::-webkit-scrollbar {
+            /* Hide Navigation */
+            nav {
                 display: none;
             }
 
-            .launch-card,
-            .branch-card,
-            .founder-card,
-            .category-card,
-            .favorite-card {
-                min-width: 280px;
-                max-width: 280px;
-                flex-shrink: 0;
-                scroll-snap-align: start;
+            /* Hero Section */
+            .hero {
+                margin-top: 0;
+                height: 100vh;
+                height: 100dvh;
             }
 
-            .launch-card img,
-            .favorite-card img {
-                height: 200px;
+            .hero-title {
+                font-size: 32px;
             }
 
-            .branch-card,
-            .founder-card {
-                min-width: 300px;
-                max-width: 300px;
+            .hero-label {
+                font-size: 10px;
             }
 
-            .category-card {
-                height: 280px;
-                min-width: 260px;
-                max-width: 260px;
+            .hero-btn {
+                padding: 10px 24px;
+                font-size: 11px;
             }
 
-            .founder-img {
-                width: 150px;
-                height: 150px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 0 15px;
-            }
-
-            .contact-buttons {
-                flex-direction: column;
-            }
-
-            .contact-btn {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            /* Categories Section - Vertical Stack */
+            .categories {
+                padding: 50px 20px;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 11px;
+                margin-bottom: 25px;
+                text-align: center;
             }
 
-            .cta-button {
-                padding: 14px 35px;
-                font-size: 1rem;
-            }
-
-            .launch-card-content,
-            .favorite-card-content {
-                padding: 20px;
-            }
-
-            .launch-card,
-            .favorite-card {
-                min-width: 260px;
-                max-width: 260px;
-            }
-
-            .branch-card,
-            .founder-card {
-                min-width: 280px;
-                max-width: 280px;
+            .category-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
 
             .category-card {
-                min-width: 240px;
-                max-width: 240px;
-                height: 260px;
+                height: 220px;
+            }
+
+            .category-name {
+                font-size: 20px;
+            }
+
+            /* New Launches */
+            .new-launches {
+                padding: 50px 0;
+            }
+
+            .new-launches-title {
+                font-size: 11px;
+                padding: 0 20px;
+                margin-bottom: 25px;
+            }
+
+            .product-card {
+                flex: 0 0 280px;
+                height: 180px;
+            }
+
+            .product-name {
+                font-size: 14px;
+            }
+
+            /* Branches Section - Card Style */
+            .branches {
+                padding: 50px 20px;
+            }
+
+            .branch-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 25px;
+            }
+
+            .branch-card {
+                padding: 25px;
+                min-height: 180px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            .branch-card::before {
+                opacity: 0.3;
+            }
+
+            .branch-card:hover::before {
+                opacity: 0.3;
+            }
+
+            .branch-name {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .branch-address {
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
+
+            .branch-link {
+                font-size: 10px;
+            }
+
+            /* Contact Section */
+            .contact {
+                padding: 50px 20px 80px;
+            }
+
+            .contact-content {
+                margin-top: 25px;
+            }
+
+            .contact-info {
+                margin-bottom: 20px;
+            }
+
+            .contact-label {
+                font-size: 10px;
+            }
+
+            .contact-text {
+                font-size: 14px;
+            }
+
+            .social-icons {
+                gap: 15px;
+                margin-top: 30px;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .social-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-container {
+                padding: 18px 30px;
+            }
+
+            .nav-links {
+                gap: 25px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero-title {
+                font-size: 44px;
+            }
+
+            .categories,
+            .branches,
+            .contact {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .category-grid,
+            .branch-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .category-card {
+                height: 400px;
+            }
+
+            .product-card {
+                flex: 0 0 380px;
+                height: 240px;
+            }
+
+            .branch-card {
+                min-height: 190px;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- Hero -->
-    <div class="hero" id="hero">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">FOU SHACK</div>
+            <ul class="nav-links">
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#new">New Launches</a></li>
+                <li><a href="#branches">Branches</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="./images/3326577-hd_1920_1080_24fps.mp4" type="video/mp4">
+        </video>
         <div class="hero-content">
-            <h1>Fou Shack Bakery</h1>
-            <p>Spreading Joy, One Treat at a Time! ✨🎄</p>
-            <a href="#new-launches" class="cta-button">Explore Treats</a>
-        </div>
-    </div>
-
-    <!-- New Launches -->
-    <section id="new-launches" class="new-launches">
-        <div class="container">
-            <h2 class="section-title">🎁 New Launches</h2>
-            <div class="launches-grid" id="launches-container"></div>
+            <div class="hero-label">100% Veg & Freshly Baked</div>
+            <h1 class="hero-title">Fou Shack</h1>
+            <a href="https://www.zomato.com/nagpur/fou-shack-cakes-and-desserts-bajaj-nagar/order" class="hero-btn">
+                Order Now
+                <span>→</span>
+            </a>
         </div>
     </section>
 
-    <!-- Branches -->
-    <section class="branches">
-        <div class="container">
-            <h2 class="section-title">🏠 Our Branches</h2>
-            <div class="branches-grid" id="branches-container"></div>
-        </div>
-    </section>
+    
 
-    <!-- Founders -->
-    <section class="founders">
-        <div class="container">
-            <h2 class="section-title">👨‍🍳 Meet Our Founders</h2>
-            <div class="founders-grid" id="founders-container"></div>
-        </div>
-    </section>
-
-    <!-- Categories -->
-    <section class="categories">
-        <div class="container">
-            <h2 class="section-title">🎂 Categories We Serve</h2>
-            <div class="categories-grid" id="categories-container"></div>
-        </div>
-    </section>
-
-    <!-- All Time Favorites -->
-    <section class="favorites">
-        <div class="container">
-            <h2 class="section-title">⭐ All-Time Favorites</h2>
-            <div class="favorites-grid" id="favorites-container"></div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact">
-        <div class="container">
-            <h2 class="section-title">💌 Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Contact Us</h3>
-                    <div class="contact-item">
-                        <strong>📞 Phone</strong>
-                        <p>+91 98765 43210<br>+91 98765 43211</p>
-                    </div>
-                    <div class="contact-item">
-                        <strong>✉️ Email</strong>
-                        <p>info@foushack.com<br>orders@foushack.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <strong>📍 Main Branch</strong>
-                        <p>Shop No. 5, Bajaj Nagar<br>Nagpur - 440010</p>
-                    </div>
-                    <div class="contact-buttons">
-                        <a href="https://wa.me/919876543210" target="_blank" class="contact-btn whatsapp">
-                            💬 WhatsApp
-                        </a>
-                        <a href="mailto:info@foushack.com" class="contact-btn email">
-                            📧 Email Us
-                        </a>
+    <!-- New Launches Section -->
+    <section id="new" class="new-launches">
+        <div class="new-launches-title">New Launches</div>
+        <div class="scroll-container">
+            <div class="scroll-wrapper">
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (2).jpeg"
+                        alt="Strawberry Cheesecake" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Very Berry Cheese Cake</div>
                     </div>
                 </div>
-                <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/d/u/0/embed?mid=1xTMVrfYDCh6WoV_JAxh1huvaHyxXHOk&ehbc=2E312F&noprof=1"
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (1).jpeg?w=800&h=500&fit=crop"
+                        alt="Chocolate Truffle Cake" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Lemon Blueberry Tea Cake</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (3).jpeg"
+                        alt="Strawberry Truffle Bento Cake" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Strawberry Truffle Bento Cake</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (4).jpeg"
+                        alt="Lemon Tart" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Blueberry Cheese Cake</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (5).jpeg"
+                        alt="Tiramisu" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Fresh Fruit Tart</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM.jpeg"
+                        alt="Tiramisu" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Nutella Fudgy Brownie</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="scroll-wrapper">
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (2).jpeg"
+                    alt="Strawberry Cheesecake" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Very Berry Cheesecake</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (1).jpeg"
+                        alt="Chocolate Truffle Cake" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Lemon Blueberry Tea Cake</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (3).jpeg"
+                        alt="Red Velvet Cupcakes" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Strawberry Truffle Bento Cake</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (4).jpeg"
+                        alt="Lemon Tart" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Blueberry Cheese Cake</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (5).jpeg"
+                        alt="Tiramisu" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Fresh Fruit Tart</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM.jpeg"
+                        alt="Tiramisu" class="product-image">
+                    <div class="product-overlay">
+                        <div class="product-name">Nutella Fudgy Brownie</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2024 Fou Shack Bakery. All rights reserved. Made with ❤️ and ❄️</p>
-    </footer>
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+        <div class="section-title">Our Collections</div>
+        <div class="category-grid">
+            <div class="category-card" onclick="location.href='#cakes'">
+                <video autoplay muted loop playsinline class="category-video">
+                    <source src="./images/4686874-uhd_2160_4096_25fps.mp4" type="video/mp4">
+                </video>
+                <div class="category-overlay">
+                    <div class="category-name">Cakes</div>
+                </div>
+            </div>
+            <div class="category-card" onclick="location.href='#desserts'">
+                <video autoplay muted loop playsinline class="category-video">
+                    <source src="./images/8478035-hd_1080_1920_24fps.mp4" type="video/mp4">
+                </video>
+                <div class="category-overlay">
+                    <div class="category-name">Desserts</div>
+                </div>
+            </div>
+            <div class="category-card" onclick="location.href='#bread'">
+                <video autoplay muted loop playsinline class="category-video">
+                    <source src="./images/6516822-hd_1920_1080_30fps.mp4" type="video/mp4">
+                </video>
+                <div class="category-overlay">
+                    <div class="category-name">Bread</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section id="branches" class="branches">
+        <div class="section-title" style="text-align: center;">Our Branches</div>
+        <div class="branch-grid">
+            <div class="branch-card" onclick="openMap('https://maps.app.goo.gl/Hksu5zeH1wJT7dLk7')">
+                <div class="branch-name">Bajaj Nagar </div>
+                <div class="branch-address">
+                    Fou Shack Cakes & Desserts<br>
+                    Nagpur, Maharashtra 440010
+                </div>
+                <a href="https://maps.app.goo.gl/Hksu5zeH1wJT7dLk7" target="_blank" class="branch-link">View on Map →</a>
+            </div>
+            <div class="branch-card" onclick="openMap('https://maps.app.goo.gl/8HzGMkTpid7NfFAw9')">
+                <div class="branch-name"> MIHAN </div>
+                <div class="branch-address">
+                    Fou Shack Brunch & Cakes<br>
+                    Nagpur, Maharashtra 441108
+                </div>
+                <a href="https://maps.app.goo.gl/8HzGMkTpid7NfFAw9" target="_blank" class="branch-link">View on Map →</a>
+            </div>
+            <div class="branch-card" onclick="openMap('https://maps.app.goo.gl/1HQkhhtiLXzeYEwd9')">
+                <div class="branch-name">Wardhaman Nagar </div>
+                <div class="branch-address">
+                    Fou Shack Bakehouse<br>
+                    Nagpur, Maharashtra 440008
+                </div>
+                <a href="https://maps.app.goo.gl/1HQkhhtiLXzeYEwd9" target="_blank" class="branch-link">View on Map →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-title" style="text-align: center;">Contact Us</div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-label">Email</div>
+                <div class="contact-text">
+                    <a href="mailto:hello@foushack.com" class="contact-link">foushack@gmail.com</a>
+                </div>
+            </div>
+            <div class="contact-info">
+                <div class="contact-label">Phone</div>
+                <div class="contact-text">+91 9834926775</div>
+            </div>
+            <div class="contact-info">
+                <div class="contact-label">Hours</div>
+                <div class="contact-text">Mon - Sun (8:00 AM - 11:30 PM)</div>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="https://wa.me/+919370901189" target="_blank" class="social-icon" title="WhatsApp">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/fou_shack" target="_blank" class="social-icon" title="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+            </a>
+            <a href="https://www.facebook.com/foushack/" target="_blank" class="social-icon" title="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+            </a>
+            <a href="https://www.zomato.com/foushack" target="_blank" class="social-icon">
+                <i class="fa-solid fa-utensils" style="color:white;font-size:22px;"></i>
+            </a>
+
+        </div>
+    </section>
 
     <script>
-        // Create snowflakes
-        function createSnowflakes() {
-            const hero = document.getElementById('hero');
-            for (let i = 0; i < 30; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.className = 'snowflake';
-                snowflake.innerHTML = '❄';
-                snowflake.style.left = Math.random() * 100 + '%';
-                snowflake.style.top = Math.random() * -200 + "px";
-                snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                snowflake.style.animationDelay = Math.random() * 5 + 's';
-                snowflake.style.fontSize = (Math.random() * 1 + 1) + 'rem';
-                hero.appendChild(snowflake);
-            }
+        function openMap(url) {
+            window.open(url, '_blank');
         }
-        createSnowflakes();
 
-        // Data
-        const launches = [
-            {
-                title: "Christmas Special Plum Cake",
-                description: "Delightful red velvet cake with rich cream cheese frosting, perfect for your holiday celebrations!",
-                image: "https://images.unsplash.com/photo-1628471036342-adf99e82f1ac?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=800"
-            },
-            {
-                title: "Cheese Garlic Bread",
-                description: "Fresh seasonal berries on buttery tart crust with smooth vanilla cream. A winter favorite!",
-                image: "https://plus.unsplash.com/premium_photo-1711752902734-a36167479983?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hlZXNlJTIwZ2FybGljJTIwYnJlYWR8ZW58MHx8MHx8fDA%3D?w=800"
-            },
-            {
-                title: "Oats Bread",
-                description: "Moist vanilla cupcakes topped with refreshing peppermint buttercream. Holiday magic in every bite!",
-                image: "https://media.istockphoto.com/id/474679296/photo/organic-homemade-whole-wheat-bread.webp?a=1&b=1&s=612x612&w=0&k=20&c=LRobL95BQELoj0H7FR9mbiJwLQmSczO4GiVspWYic5M="
-            }
-        ];
-
-        const branches = [
-            {
-                name: "Bajaj Nagar",
-                address: "Shop No. 5, Bajaj Nagar, Nagpur - 440010",
-                mapLink: "https://maps.google.com",
-                bgImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800"
-            },
-            {
-                name: "MIHAN",
-                address: "Plot No. 12, MIHAN, Nagpur",
-                mapLink: "https://maps.google.com",
-                bgImage: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800"
-            },
-            {
-                name: "Wardhaman Nagar",
-                address: "Near Main Square, Wardha Nagar, Nagpur",
-                mapLink: "https://maps.google.com",
-                bgImage: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800"
-            }
-        ];
-
-        const founders = [
-            {
-                name: "Arya",
-                role: "Co-Founder & Head Baker",
-                bio: "With 15 years of baking experience, Arya brings passion and perfection to every creation. Known for award-winning signature cakes that delight customers.",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400"
-            },
-            {
-                name: "Rucha",
-                role: "Co-Founder & Creative Director",
-                bio: "Rucha's artistic vision transforms simple ingredients into edible masterpieces. Specializes in custom designs and innovative flavor combinations.",
-                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400"
-            }
-        ];
-
-        const categories = [
-            {
-                name: "Cakes",
-                description: "Custom cakes for every celebration",
-                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800"
-            },
-            {
-                name: "Breads",
-                description: "Freshly baked artisan breads",
-                image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800"
-            },
-            {
-                name: "Desserts",
-                description: "Irresistible sweet treats",
-                image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800"
-            }
-        ];
-
-        const favorites = [
-            {
-                title: "Chocolate Dream Cake",
-                description: "Rich chocolate layers with ganache",
-                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800"
-            },
-            {
-                title: "Butter Croissants",
-                description: "Buttery, flaky, fresh daily",
-                image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800"
-            },
-            {
-                title: "Signature Cookies",
-                description: "Baked fresh every morning",
-                image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800"
-            },
-            {
-                title: "Gourmet Cupcakes",
-                description: "Variety of delicious flavors",
-                image: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=800"
-            }
-        ];
-
-        // Render Functions
-        const launchesContainer = document.getElementById('launches-container');
-        launches.forEach(launch => {
-            launchesContainer.innerHTML += `
-                <div class="launch-card">
-                    <span class="new-badge">NEW</span>
-                    <img src="${launch.image}" alt="${launch.title}">
-                    <div class="launch-card-content">
-                        <h3>${launch.title}</h3>
-                        <p>${launch.description}</p>
-                    </div>
-                </div>
-            `;
-        });
-
-        const branchesContainer = document.getElementById('branches-container');
-        branches.forEach(branch => {
-            branchesContainer.innerHTML += `
-                <div class="branch-card" style="background-image: url('${branch.bgImage}'); background-size: cover; background-position: center; background-blend-mode: overlay;">
-                    <h3>${branch.name}</h3>
-                    <p>${branch.address}</p>
-                    <a href="${branch.mapLink}" target="_blank" class="branch-link">Get Directions</a>
-                </div>
-            `;
-        });
-
-        const foundersContainer = document.getElementById('founders-container');
-        founders.forEach(founder => {
-            foundersContainer.innerHTML += `
-                <div class="founder-card">
-                    <img src="${founder.image}" alt="${founder.name}" class="founder-img">
-                    <h3>${founder.name}</h3>
-                    <p class="role">${founder.role}</p>
-                    <p>${founder.bio}</p>
-                </div>
-            `;
-        });
-
-        const categoriesContainer = document.getElementById('categories-container');
-        categories.forEach(category => {
-            categoriesContainer.innerHTML += `
-                <div class="category-card">
-                    <img src="${category.image}" alt="${category.name}">
-                    <div class="category-overlay">
-                        <h3>${category.name}</h3>
-                        <p>${category.description}</p>
-                    </div>
-                </div>
-            `;
-        });
-
-        const favoritesContainer = document.getElementById('favorites-container');
-        favorites.forEach(fav => {
-            favoritesContainer.innerHTML += `
-                <div class="favorite-card">
-                    <img src="${fav.image}" alt="${fav.title}">
-                    <div class="favorite-card-content">
-                        <h3>${fav.title}</h3>
-                        <p>${fav.description}</p>
-                        <button class="order-btn">Order Now</button>
-                    </div>
-                </div>
-            `;
-        });
-
-        // Smooth scroll
+        // Smooth and slow scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 60;
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 500;
+                    let start = null;
+
+                    function animation(currentTime) {
+                        if (start === null) start = currentTime;
+                        const timeElapsed = currentTime - start;
+                        const run = ease(timeElapsed, startPosition, distance, duration);
+                        window.scrollTo(0, run);
+                        if (timeElapsed < duration) requestAnimationFrame(animation);
+                    }
+
+                    function ease(t, b, c, d) {
+                        t /= d / 2;
+                        if (t < 1) return c / 2 * t * t + b;
+                        t--;
+                        return -c / 2 * (t * (t - 2) - 1) + b;
+                    }
+
+                    requestAnimationFrame(animation);
+                }
             });
         });
+
+
     </script>
 </body>
+
 </html>
