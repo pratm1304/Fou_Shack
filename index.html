@@ -190,6 +190,246 @@
             text-transform: uppercase;
         }
 
+        /* Category Expansion Styles */
+/* Category Expansion Styles */
+.category-card {
+    transition: all 0.5s ease;
+}
+
+.category-products {
+    display: none;
+    position: relative;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-products.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.category-products.collapsing {
+    opacity: 0;
+    transform: translateX(50px);
+    /* Removed the override transition - now uses the same transition as above */
+}
+
+/* Desktop expanded state */
+@media (min-width: 1025px) {
+    .categories.expanded .category-grid {
+        grid-template-columns: 350px 1fr;
+        transition: all 0.5s ease;
+    }
+
+    .categories.expanded .category-card {
+        display: none;
+    }
+
+    .categories.expanded .category-card.active {
+        display: block;
+        height: 400px;
+    }
+}
+
+.products-slider-container {
+    position: relative;
+    padding: 0 20px;
+    height: 280px;
+}
+
+.products-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100%;
+    scroll-behavior: smooth;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.products-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.products-slider:active {
+    cursor: grabbing;
+}
+
+.products-slider.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+.products-slider-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+}
+
+.slider-product-card {
+    flex: 0 0 300px;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.slider-product-card:hover {
+    transform: scale(1.02);
+}
+
+.slider-product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 75%;
+}
+
+.slider-product-card .product-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7) 50%, transparent);
+}
+
+.slider-product-card .product-name {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.close-category {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-category:hover {
+    background: #7B2CBF;
+    border-color: #7B2CBF;
+    transform: rotate(90deg);
+}
+
+/* Branch card background images */
+.branch-card:nth-child(1)::before {
+    background-image: url('./images/branch1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.branch-card:nth-child(2)::before {
+    background-image: url('./images/branch2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.branch-card:nth-child(3)::before {
+    background-image: url('./images/branch3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Mobile styles for category expansion */
+@media (max-width: 768px) {
+    .category-products {
+        grid-column: 1 / -1;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: none;
+        transform: translateY(-20px);
+        margin-top: -10px;
+        transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .category-products.active {
+        transform: translateY(0);
+    }
+    
+    .category-products.collapsing {
+        transform: translateY(-20px);
+    }
+    
+    .products-slider-container {
+        height: 180px;
+        padding: 0 5px;
+    }
+    
+    .slider-product-card {
+        flex: 0 0 220px;
+        height: 180px;
+    }
+    
+    .close-category {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .category-products {
+        grid-column: 1 / -1;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: none;
+        transform: translateY(-20px);
+        margin-top: -10px;
+    }
+    
+    .category-products.active {
+        transform: translateY(0);
+    }
+    
+    .category-products.collapsing {
+        transform: translateY(-20px);
+    }
+    
+    .products-slider-container {
+        height: 240px;
+        padding: 0 10px;
+    }
+    
+    .slider-product-card {
+        flex: 0 0 260px;
+        height: 240px;
+    }
+    
+    .close-category {
+        display: none;
+    }
+}
+
         /* New Launches Section */
         .new-launches {
             padding: 80px 0;
@@ -287,27 +527,36 @@
         }
 
         .branch-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #1e051832;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-            z-index: 0;
-        }
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+    z-index: 0;
+}
 
-        .branch-card:nth-child(2)::before {
-            background-color: #1e051832;
-        }
+/* Bajaj Nagar Branch */
+.branch-card:nth-child(1)::before {
+    background-image: linear-gradient(to top, rgba(25, 11, 27, 0.9), rgba(25, 11, 27, 0.5)), url('./images/hero.jpg');
+     background-position:  top;
+}
 
-        .branch-card:nth-child(3)::before {
-            background-color: #1e051832;
-        }
+/* Wardhaman Nagar Branch */
+.branch-card:nth-child(2)::before {
+    background-position:  right;
+    background-image: linear-gradient(to top, rgba(25, 11, 27, 0.9), rgba(25, 11, 27, 0.5)), url('/images/branch2.jpeg');
+}
+
+/* MIHAN Branch */
+.branch-card:nth-child(3)::before {
+    background-position: top center  ;
+    background-image: linear-gradient(to top, rgba(25, 11, 27, 0.9), rgba(25, 11, 27, 0.5)), url('./images/branch3.jpeg');
+}
 
         .branch-card:hover {
             border-color: #d7d2dc;
@@ -688,7 +937,7 @@
                     <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (4).jpeg"
                         alt="Lemon Tart" class="product-image">
                     <div class="product-overlay">
-                        <div class="product-name">Blueberry Cheese Cake</div>
+                        <div class="product-name">Blueberry Bento Cheese Cake</div>
                     </div>
                 </div>
                 <div class="product-card">
@@ -733,7 +982,7 @@
                     <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (4).jpeg"
                         alt="Lemon Tart" class="product-image">
                     <div class="product-overlay">
-                        <div class="product-name">Blueberry Cheese Cake</div>
+                        <div class="product-name">Blueberry Bento Cheese Cake</div>
                     </div>
                 </div>
                 <div class="product-card">
@@ -755,35 +1004,48 @@
     </section>
 
     <!-- Categories Section -->
-    <section id="categories" class="categories">
-        <div class="section-title">Our Collections</div>
-        <div class="category-grid">
-            <div class="category-card" onclick="location.href='#cakes'">
-                <video autoplay muted loop playsinline class="category-video">
-                    <source src="./images/4686874-uhd_2160_4096_25fps.mp4" type="video/mp4">
-                </video>
-                <div class="category-overlay">
-                    <div class="category-name">Cakes</div>
-                </div>
-            </div>
-            <div class="category-card" onclick="location.href='#desserts'">
-                <video autoplay muted loop playsinline class="category-video">
-                    <source src="./images/8478035-hd_1080_1920_24fps.mp4" type="video/mp4">
-                </video>
-                <div class="category-overlay">
-                    <div class="category-name">Desserts</div>
-                </div>
-            </div>
-            <div class="category-card" onclick="location.href='#bread'">
-                <video autoplay muted loop playsinline class="category-video">
-                    <source src="./images/6516822-hd_1920_1080_30fps.mp4" type="video/mp4">
-                </video>
-                <div class="category-overlay">
-                    <div class="category-name">Bread</div>
-                </div>
+<section id="categories" class="categories">
+    <div class="section-title">Our Collections</div>
+    <div class="category-grid">
+        <div class="category-card" data-category="cakes">
+            <video autoplay muted loop playsinline class="category-video">
+                <source src="/images/WhatsApp Video 2025-12-22 at 5.31.46 PM.mp4" type="video/mp4">
+            </video>
+            <div class="category-overlay">
+                <div class="category-name">Cakes</div>
             </div>
         </div>
-    </section>
+        <div class="category-card" data-category="bread">
+            <video autoplay muted loop playsinline class="category-video">
+                <source src="./images/6516822-hd_1920_1080_30fps.mp4" type="video/mp4">
+            </video>
+            <div class="category-overlay">
+                <div class="category-name">Bread</div>
+            </div>
+        </div>
+        <div class="category-card" data-category="desserts">
+            <video autoplay muted loop playsinline class="category-video">
+                <source src="/images/WhatsApp Video 2025-12-22 at 5.30.52 PM.mp4" type="video/mp4">
+            </video>
+            <div class="category-overlay">
+                <div class="category-name">Desserts</div>
+            </div>
+        </div>
+        
+        <!-- Products Slider Container -->
+        <!-- Products Slider Container -->
+<div class="category-products" id="category-products">
+    <button class="close-category" onclick="collapseCategory()">×</button>
+    <div class="products-slider-container">
+        <div class="products-slider" id="products-slider">
+            <div class="products-slider-track" id="products-track">
+                <!-- Products will be injected here -->
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</section>
 
     <!-- Branches Section -->
     <section id="branches" class="branches">
@@ -897,6 +1159,235 @@
                 }
             });
         });
+
+        // Product data for each category
+// Product data for each category
+const categoryProducts = {
+    cakes: [
+        { name: 'Rose Almond Cake', image: '/images/rose.jpeg' },
+        { name: 'Bluberry Cake', image: '/images/bluberry.jpeg' },
+        { name: 'Choco Chips Cake', image: '/images/chocochips.jpeg' },
+        { name: 'Chocolate Truffle Cake', image: '/images/chocotruffle.jpeg' },
+        { name: 'Choco Moca Cake', image: '/images/chocomocha.jpeg' },
+        { name: 'Kesar Badam Cake', image: '/images/kesarbadam.jpeg' },
+        { name: 'Premium Pineapple Cake', image: '/images/pineapple.jpeg' },
+        { name: 'Choco Fudge Cake', image: '/images/chocofudge.jpeg' },
+
+    ],
+    bread: [
+        { name: 'Whole Wheat Bread', image: '/images/wholewheat.jpeg' },
+        { name: 'Multigrain Bread', image: '/images/multigrain.jpeg' }
+        
+    ],
+    desserts: [
+        { name: 'Fresh Fruit Tart', image: '/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (5).jpeg' },
+        { name: 'Nutella Fudgy Brownie', image: '/images/WhatsApp Image 2025-12-22 at 4.41.27 PM.jpeg' },
+        { name: 'Very Berry Cheese Cake', image: '/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (2).jpeg' },
+        { name: 'Strawberry Truffle Bento Cake', image: '/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (3).jpeg' },
+        { name: 'Lemon Blueberry Tea Cake', image: '/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (1).jpeg' },
+        { name: 'Blueberry Bento Cheese Cake', image: '/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (4).jpeg' }
+    ]
+};
+
+let activeCategory = null;
+
+// Check if mobile or tablet
+function isMobileOrTablet() {
+    return window.innerWidth <= 1024;
+}
+
+// Category click handler
+document.querySelectorAll('.category-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const category = this.getAttribute('data-category');
+        
+        // If clicking the same category, collapse
+        if (activeCategory === category) {
+            collapseCategory();
+            return;
+        }
+        
+        // If another category is open, collapse it first then expand new one
+        if (activeCategory) {
+            collapseCategory(() => {
+                setTimeout(() => expandCategory(this, category), 50);
+            });
+        } else {
+            expandCategory(this, category);
+        }
+    });
+});
+
+function expandCategory(cardElement, category) {
+    const categoriesSection = document.querySelector('.categories');
+    const categoryProductsEl = document.getElementById('category-products');
+    const categoryGrid = document.querySelector('.category-grid');
+    const allCards = document.querySelectorAll('.category-card');
+    
+    // Remove active class from all cards
+    allCards.forEach(card => card.classList.remove('active'));
+    
+    // Add active class to clicked card
+    cardElement.classList.add('active');
+    
+    // Add expanded class to categories section
+    categoriesSection.classList.add('expanded');
+    
+    // For mobile/tablet: Move products container after the clicked card
+    if (isMobileOrTablet()) {
+        cardElement.after(categoryProductsEl);
+    }
+    
+    // Load products first (hidden)
+    loadCategoryProducts(category);
+    
+    // Show products slider with animation
+    requestAnimationFrame(() => {
+        categoryProductsEl.classList.remove('collapsing');
+        categoryProductsEl.classList.add('active');
+    });
+    
+    activeCategory = category;
+    
+    // Initialize drag scroll
+    setTimeout(initDragScroll, 100);
+}
+
+function collapseCategory(callback) {
+    const categoriesSection = document.querySelector('.categories');
+    const categoryProductsEl = document.getElementById('category-products');
+    const allCards = document.querySelectorAll('.category-card');
+    const categoryGrid = document.querySelector('.category-grid');
+    const productCards = document.querySelectorAll('.slider-product-card');
+    
+    // Remove active class from all cards
+    allCards.forEach(card => card.classList.remove('active'));
+    
+    // Animate product cards out in reverse order
+    productCards.forEach((card, index) => {
+        const reverseIndex = productCards.length - 1 - index;
+        setTimeout(() => {
+            card.style.transition = 'all 0.4s ease';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+        }, reverseIndex * 80);
+    });
+    
+    // Add collapsing class after a slight delay
+    setTimeout(() => {
+        categoryProductsEl.classList.add('collapsing');
+    }, 50);
+    
+    // Wait for animation to complete
+    setTimeout(() => {
+        categoryProductsEl.classList.remove('active');
+        categoryProductsEl.classList.remove('collapsing');
+        
+        // Remove expanded class
+        categoriesSection.classList.remove('expanded');
+        
+        // For mobile/tablet: Move products container back to end of grid
+        if (isMobileOrTablet()) {
+            categoryGrid.appendChild(categoryProductsEl);
+        }
+        
+        // Clear products
+        document.getElementById('products-track').innerHTML = '';
+        
+        activeCategory = null;
+        
+        if (callback && typeof callback === 'function') {
+            callback();
+        }
+    }, 500); // Adjusted timing to match the animations
+}
+
+function loadCategoryProducts(category) {
+    const track = document.getElementById('products-track');
+    const products = categoryProducts[category] || [];
+    
+    track.innerHTML = '';
+    
+    products.forEach((product, index) => {
+        const productCard = document.createElement('div');
+        productCard.className = 'slider-product-card';
+        productCard.style.opacity = '0';
+        productCard.style.transform = 'translateY(20px)';
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <div class="product-overlay">
+                <div class="product-name">${product.name}</div>
+            </div>
+        `;
+        track.appendChild(productCard);
+        
+        // Animate cards in with stagger
+        setTimeout(() => {
+            productCard.style.transition = 'all 0.4s ease';
+            productCard.style.opacity = '1';
+            productCard.style.transform = 'translateY(0)';
+        }, 100 + (index * 80));
+    });
+}
+
+// Drag to scroll functionality
+function initDragScroll() {
+    const slider = document.getElementById('products-slider');
+    if (!slider) return;
+    
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    // Remove old listeners
+    slider.onmousedown = null;
+    slider.onmouseleave = null;
+    slider.onmouseup = null;
+    slider.onmousemove = null;
+    
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('dragging');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+    
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('dragging');
+    });
+    
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('dragging');
+    });
+    
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+}
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (activeCategory) {
+        const categoryProductsEl = document.getElementById('category-products');
+        const categoryGrid = document.querySelector('.category-grid');
+        const activeCard = document.querySelector('.category-card.active');
+        
+        if (isMobileOrTablet() && activeCard) {
+            activeCard.after(categoryProductsEl);
+        } else if (!isMobileOrTablet()) {
+            categoryGrid.appendChild(categoryProductsEl);
+        }
+    }
+});
 
 
     </script>
