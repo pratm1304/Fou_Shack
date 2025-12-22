@@ -464,10 +464,11 @@
     }
 }
 
-        /* New Launches Section */
+        /* New Launches Section - FIXED VERSION */
         .new-launches {
             padding: 80px 0;
             overflow: hidden;
+            position: relative;
         }
 
         .new-launches-title {
@@ -482,34 +483,55 @@
         }
 
         .scroll-container {
-    display: flex;
-    overflow: hidden;      /* important */
-    width: 100%;           /* viewport width */
-}
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
 
+        /* Single continuous scroll track */
+        .scroll-track {
+            display: flex;
+            animation: infiniteScroll 30s linear infinite;
+            will-change: transform;
+            /* Force hardware acceleration consistently across browsers */
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+        }
 
+        /* Ensure animation doesn't pause */
+        .scroll-track,
+        .scroll-track * {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-perspective: 1000;
+            perspective: 1000;
+        }
 
+        @keyframes infiniteScroll {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
+        }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-
-        .scroll-wrapper {
-    display: flex;
-    gap: 20px;
-    width: max-content;
-    flex-shrink: 0;
-    animation: scroll 30s linear infinite;
-    will-change: transform;
-    transform: translate3d(0,0,0);
-}
-
+        /* Webkit-specific optimization */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            .scroll-track {
+                -webkit-animation: infiniteScroll 30s linear infinite;
+            }
+            
+            @-webkit-keyframes infiniteScroll {
+                0% {
+                    -webkit-transform: translate3d(0, 0, 0);
+                }
+                100% {
+                    -webkit-transform: translate3d(-50%, 0, 0);
+                }
+            }
+        }
 
         .product-card {
             flex: 0 0 450px;
@@ -517,28 +539,60 @@
             position: relative;
             overflow: hidden;
             background: #1a1a1a;
+            margin-right: 20px;
+
         }
 
         .product-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 75%; /* Shows bottom 40% of image */
-}
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 75%;
+        }
 
         .product-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7) 50%, transparent);
-}
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.7) 50%, transparent);
+        }
 
         .product-name {
             font-size: 16px;
             font-weight: 600;
             letter-spacing: 0.5px;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .new-launches {
+                padding: 50px 0;
+            }
+
+            .new-launches-title {
+                font-size: 11px;
+                padding: 0 20px;
+                margin-bottom: 25px;
+            }
+
+            .product-card {
+                flex: 0 0 280px;
+                height: 180px;
+            }
+
+            .product-name {
+                font-size: 14px;
+            }
+        }
+
+        /* Tablet adjustments */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .product-card {
+                flex: 0 0 380px;
+                height: 240px;
+            }
         }
 
         /* Branches Section */
@@ -970,100 +1024,101 @@
     
 
     <!-- New Launches Section -->
-    <section id="new" class="new-launches">
-        <div class="new-launches-title">New Launches</div>
-        <div class="scroll-container">
-            <div class="scroll-wrapper">
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (2).jpeg"
-                        alt="Best 100% Veg Very Berry Cheese Cake in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Very Berry Cheese Cake</div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (1).jpeg?w=800&h=500&fit=crop"
-                        alt="Best 100% Veg Lemon Blueberry Tea Cake in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Lemon Blueberry Tea Cake</div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (3).jpeg"
-                        alt="Best 100% Veg Strawberry Truffle Bento Cake in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Strawberry Truffle Bento Cake</div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (4).jpeg"
-                        alt="Best 100% Veg Blueberry Bento Cheese Cake in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Blueberry Bento Cheese Cake</div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (5).jpeg"
-                        alt="Best 100% Veg Fresh Fruit Tart in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Fresh Fruit Tart</div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM.jpeg"
-                        alt="Best 100% Veg Nutella Fudgy Brownie in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Nutella Fudgy Brownie</div>
-                    </div>
+    <!-- New Launches Section -->
+<section id="new" class="new-launches">
+    <div class="new-launches-title">New Launches</div>
+    <div class="scroll-container">
+        <div class="scroll-track">
+            <!-- First set of products -->
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (2).jpeg"
+                    alt="Best 100% Veg Very Berry Cheese Cake in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Very Berry Cheese Cake</div>
                 </div>
             </div>
-            <!-- Duplicate for seamless loop -->
-            <div class="scroll-wrapper">
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (2).jpeg"
-                        alt="Best 100% Veg Very Berry Cheese Cake in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Very Berry Cheese Cake</div>
-                    </div>
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (1).jpeg"
+                    alt="Best 100% Veg Lemon Blueberry Tea Cake in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Lemon Blueberry Tea Cake</div>
                 </div>
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (1).jpeg?w=800&h=500&fit=crop"
-                        alt="Best 100% Veg Lemon Blueberry Tea Cake in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Lemon Blueberry Tea Cake</div>
-                    </div>
+            </div>
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (3).jpeg"
+                    alt="Best 100% Veg Strawberry Truffle Bento Cake in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Strawberry Truffle Bento Cake</div>
                 </div>
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (3).jpeg"
-                        alt="Best 100% Veg Strawberry Truffle Bento Cake in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Strawberry Truffle Bento Cake</div>
-                    </div>
+            </div>
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (4).jpeg"
+                    alt="Best 100% Veg Blueberry Bento Cheese Cake in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Blueberry Bento Cheese Cake</div>
                 </div>
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (4).jpeg"
-                        alt="Best 100% Veg Blueberry Bento Cheese Cake in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Blueberry Bento Cheese Cake</div>
-                    </div>
+            </div>
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (5).jpeg"
+                    alt="Best 100% Veg Fresh Fruit Tart in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Fresh Fruit Tart</div>
                 </div>
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (5).jpeg"
-                        alt="Best 100% Veg Fresh Fruit Tart in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Fresh Fruit Tart</div>
-                    </div>
+            </div>
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM.jpeg"
+                    alt="Best 100% Veg Nutella Fudgy Brownie in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Nutella Fudgy Brownie</div>
                 </div>
-                <div class="product-card">
-                    <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM.jpeg"
-                        alt="Best 100% Veg Nutella Fudgy Brownie in Nagpur" class="product-image">
-                    <div class="product-overlay">
-                        <div class="product-name">Nutella Fudgy Brownie</div>
-                    </div>
+            </div>
+            
+            <!-- Duplicate set for seamless loop -->
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (2).jpeg"
+                    alt="Best 100% Veg Very Berry Cheese Cake in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Very Berry Cheese Cake</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (1).jpeg"
+                    alt="Best 100% Veg Lemon Blueberry Tea Cake in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Lemon Blueberry Tea Cake</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (3).jpeg"
+                    alt="Best 100% Veg Strawberry Truffle Bento Cake in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Strawberry Truffle Bento Cake</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (4).jpeg"
+                    alt="Best 100% Veg Blueberry Bento Cheese Cake in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Blueberry Bento Cheese Cake</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (5).jpeg"
+                    alt="Best 100% Veg Fresh Fruit Tart in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Fresh Fruit Tart</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM.jpeg"
+                    alt="Best 100% Veg Nutella Fudgy Brownie in Nagpur" class="product-image">
+                <div class="product-overlay">
+                    <div class="product-name">Nutella Fudgy Brownie</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Categories Section -->
 <section id="categories" class="categories">
