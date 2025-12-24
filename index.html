@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Performance hints -->
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//foushack.vercel.app">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>    <!-- DNS prefetch for external resources -->
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <title>Fou Shack – Best Cakes, Desserts & Breads in Nagpur | 100% Veg & Freshly Baked</title>
     <meta name="description" content="Fou Shack is a premium bakery in Nagpur offering fresh 100% pure veg cakes, desserts, cheesecakes & breads. Visit our branches in Bajaj Nagar, Wardhaman Nagar & MIHAN." />
     <meta name="keywords" content="bakery in nagpur, best cakes in nagpur, eggless bakery nagpur, desserts in nagpur, fou shack bakery, cakes near me,fou shack,foushack,fushack,pure veg cakes,100% pure veg cakes" />
@@ -16,7 +22,9 @@
     <!-- Add these favicon lines -->
     <link rel="icon" type="image/png" href="./images/logo.png">
     <link rel="apple-touch-icon" href="./images/logo.png">
-
+    <!-- Preload critical resources -->
+<link rel="preload" as="video" href="./images/v1.mp4">
+<link rel="preload" as="image" href="./images/logo.png">
     <meta property="og:title" content="Fou Shack – Best Eggless Bakery in Nagpur" />
 <meta property="og:description" content="Premium 100% veg bakery in Nagpur serving fresh cakes & desserts." />
 <meta property="og:image" content="https://foushack.in/images/logo.png" />
@@ -970,6 +978,30 @@
                 min-height: 190px;
             }
         }
+
+        /* Image lazy load fade-in effect */
+img {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+img[loading="lazy"] {
+    opacity: 1;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+/* Video fade-in */
+video {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+video[autoplay] {
+    opacity: 0.7;
+}
     </style>
     
 
@@ -991,13 +1023,13 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="./images/3326577-hd_1920_1080_24fps.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline class="hero-video" preload="metadata">
+            <source src="./images/v1.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
             <div class="hero-label">100% Veg & Freshly Baked</div>
             <h1 class="hero-title">Fou Shack</h1>
-            <a href="https://www.zomato.com/nagpur/fou-shack-cakes-and-desserts-bajaj-nagar/order" class="hero-btn">
+            <a href="https://foushack.vercel.app/customer/" class="hero-btn">
                 Order Now
                 <span>→</span>
             </a>
@@ -1032,42 +1064,42 @@
             <!-- First set of products -->
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (2).jpeg"
-                    alt="Best 100% Veg Very Berry Cheese Cake in Nagpur" class="product-image">
+                    alt="Best 100% Veg Very Berry Cheese Cake in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Very Berry Cheese Cake</div>
                 </div>
             </div>
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (1).jpeg"
-                    alt="Best 100% Veg Lemon Blueberry Tea Cake in Nagpur" class="product-image">
+                    alt="Best 100% Veg Lemon Blueberry Tea Cake in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Lemon Blueberry Tea Cake</div>
                 </div>
             </div>
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (3).jpeg"
-                    alt="Best 100% Veg Strawberry Truffle Bento Cake in Nagpur" class="product-image">
+                    alt="Best 100% Veg Strawberry Truffle Bento Cake in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Strawberry Truffle Bento Cake</div>
                 </div>
             </div>
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (4).jpeg"
-                    alt="Best 100% Veg Blueberry Bento Cheese Cake in Nagpur" class="product-image">
+                    alt="Best 100% Veg Blueberry Bento Cheese Cake in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Blueberry Bento Cheese Cake</div>
                 </div>
             </div>
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (5).jpeg"
-                    alt="Best 100% Veg Fresh Fruit Tart in Nagpur" class="product-image">
+                    alt="Best 100% Veg Fresh Fruit Tart in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Fresh Fruit Tart</div>
                 </div>
             </div>
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM.jpeg"
-                    alt="Best 100% Veg Nutella Fudgy Brownie in Nagpur" class="product-image">
+                    alt="Best 100% Veg Nutella Fudgy Brownie in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Nutella Fudgy Brownie</div>
                 </div>
@@ -1076,42 +1108,42 @@
             <!-- Duplicate set for seamless loop -->
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (2).jpeg"
-                    alt="Best 100% Veg Very Berry Cheese Cake in Nagpur" class="product-image">
+                    alt="Best 100% Veg Very Berry Cheese Cake in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Very Berry Cheese Cake</div>
                 </div>
             </div>
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (1).jpeg"
-                    alt="Best 100% Veg Lemon Blueberry Tea Cake in Nagpur" class="product-image">
+                    alt="Best 100% Veg Lemon Blueberry Tea Cake in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Lemon Blueberry Tea Cake</div>
                 </div>
             </div>
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (3).jpeg"
-                    alt="Best 100% Veg Strawberry Truffle Bento Cake in Nagpur" class="product-image">
+                    alt="Best 100% Veg Strawberry Truffle Bento Cake in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Strawberry Truffle Bento Cake</div>
                 </div>
             </div>
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (4).jpeg"
-                    alt="Best 100% Veg Blueberry Bento Cheese Cake in Nagpur" class="product-image">
+                    alt="Best 100% Veg Blueberry Bento Cheese Cake in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Blueberry Bento Cheese Cake</div>
                 </div>
             </div>
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM (5).jpeg"
-                    alt="Best 100% Veg Fresh Fruit Tart in Nagpur" class="product-image">
+                    alt="Best 100% Veg Fresh Fruit Tart in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Fresh Fruit Tart</div>
                 </div>
             </div>
             <div class="product-card">
                 <img src="/images/WhatsApp Image 2025-12-22 at 4.41.27 PM.jpeg"
-                    alt="Best 100% Veg Nutella Fudgy Brownie in Nagpur" class="product-image">
+                    alt="Best 100% Veg Nutella Fudgy Brownie in Nagpur" class="product-image" loading="lazy">
                 <div class="product-overlay">
                     <div class="product-name">Nutella Fudgy Brownie</div>
                 </div>
@@ -1125,24 +1157,24 @@
     <div class="section-title">Our Collections</div>
     <div class="category-grid">
         <div class="category-card" data-category="cakes">
-            <video autoplay muted loop playsinline class="category-video">
-                <source src="/images/WhatsApp Video 2025-12-22 at 5.31.46 PM.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline class="category-video" loading="lazy" preload="none">
+                <source src="/images/v2.mp4" type="video/mp4">
             </video>
             <div class="category-overlay">
                 <div class="category-name">Cakes</div>
             </div>
         </div>
         <div class="category-card" data-category="bread">
-            <video autoplay muted loop playsinline class="category-video">
-                <source src="./images/6516822-hd_1920_1080_30fps.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline class="category-video" loading="lazy" preload="none">
+                <source src="./images/v3.mp4" type="video/mp4">
             </video>
             <div class="category-overlay">
                 <div class="category-name">Bread</div>
             </div>
         </div>
         <div class="category-card" data-category="desserts">
-            <video autoplay muted loop playsinline class="category-video">
-                <source src="/images/WhatsApp Video 2025-12-22 at 5.30.52 PM.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline class="category-video" loading="lazy" preload="none">
+                <source src="/images/v4.mp4" type="video/mp4">
             </video>
             <div class="category-overlay">
                 <div class="category-name">Desserts</div>
@@ -1442,7 +1474,7 @@ function loadCategoryProducts(category) {
         productCard.style.opacity = '0';
         productCard.style.transform = 'translateY(20px)';
         productCard.innerHTML = `
-            <img src="${product.image}" alt="Best 100% Veg ${product.name} in Nagpur">
+            <img src="${product.image}" alt="Best 100% Veg ${product.name} in Nagpur" loading="lazy">
             <div class="product-overlay">
                 <div class="product-name">${product.name}</div>
             </div>
@@ -1511,6 +1543,77 @@ window.addEventListener('resize', () => {
         } else if (!isMobileOrTablet()) {
             categoryGrid.appendChild(categoryProductsEl);
         }
+    }
+});
+
+// ============================================
+// PERFORMANCE OPTIMIZATIONS
+// ============================================
+
+// Lazy load images with fade-in effect
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    
+                    // Add loaded class when image actually loads
+                    if (img.complete) {
+                        img.classList.add('loaded');
+                    } else {
+                        img.addEventListener('load', () => {
+                            img.classList.add('loaded');
+                        });
+                    }
+                    
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px' // Start loading 50px before entering viewport
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for older browsers
+        lazyImages.forEach(img => img.classList.add('loaded'));
+    }
+});
+
+// Pause/play videos based on viewport visibility (saves bandwidth)
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyVideos = document.querySelectorAll('video[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+                if (entry.isIntersecting) {
+                    video.play().catch(err => console.log('Video play failed:', err));
+                } else {
+                    video.pause();
+                }
+            });
+        }, {
+            threshold: 0.5 // Video must be 50% visible
+        });
+        
+        lazyVideos.forEach(video => videoObserver.observe(video));
+    }
+});
+
+// Optimize scroll performance
+let ticking = false;
+window.addEventListener('scroll', function() {
+    if (!ticking) {
+        window.requestAnimationFrame(function() {
+            // Your scroll code here if needed
+            ticking = false;
+        });
+        ticking = true;
     }
 });
 
